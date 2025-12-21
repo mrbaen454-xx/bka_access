@@ -1,0 +1,157 @@
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.header-logo {
+    background-color: #0b132b; /* Biru Gelap sesuai gambar */
+    padding: 15px 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid #0b132b;
+}
+
+.header-logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo-box {
+    height: 40px;
+}
+
+/* Container Utama */
+.container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 40px 10%;
+    border-top: 2px solid #0b132b; /* Garis pembatas di bawah header */
+}
+
+/* Form Section & Card */
+.form-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background-color: #111827; /* Biru gelap form */
+    padding: 40px;
+    border-radius: 12px;
+    width: 380px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* Input Styles */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: none; /* Disembunyikan agar mirip dengan kotak putih kosong di gambar */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Tombol Registrasi */
+.btn-gradient {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 150px;
+    margin-top: 10px;
+}
+
+.btn-gradient:hover {
+    background-color: white;
+    color: #111827;
+}
+
+/* Link Login */
+.link-footer {
+    margin-top: 20px;
+}
+
+.link-footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Image Section */
+.image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    border-top: 2px solid #0b132b;
+    margin-top: 20px;
+}
+
+footer h3 {
+    font-size: 1rem;
+    color: #0b132b;
+    font-weight: bold;
+}
+
+footer img {
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Error Text */
+.error-text {
+    color: #ff4d4d;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}

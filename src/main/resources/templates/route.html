@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/route.css}" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-left">
+        <img th:src="@{/aset/bka.png}" alt="Logo BKA" class="logo-icon" />
+        <h1>ACCESS</h1>
+      </div>
+      <nav class="header-right">
+        <a th:href="@{/admin}">HOME</a>
+        <a th:href="@{/station}">STATION</a>
+        <a th:href="@{/train}">TRAIN</a>
+        <a th:href="@{/schedule}">SCHEDULE</a>
+        <a th:href="@{/tiketAll}">TICKET</a>
+        <div class="nav-icon-group">
+          <img th:src="@{/aset/profile.png}" alt="profile" />
+          <a th:href="@{/profile/admin}">PROFILE</a>
+        </div>
+        <div class="nav-icon-group">
+          <img th:src="@{/aset/logout.png}" alt="logout" />
+          <a th:href="@{/}">LOGOUT</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-container">
+      <h1 class="page-title">ROUTE</h1>
+      <hr class="header-line" />
+
+      <section class="form-wrapper">
+        <form
+          th:action="${mode == 'update'} ? @{/route/update/{id}(id=${route.id})} : @{/route}"
+          method="post"
+          th:object="${route}"
+        >
+          <input type="hidden" th:field="*{id}" />
+
+          <div class="form-group">
+            <label>DEPARTURE STATION :</label>
+            <select th:field="*{departureStation}" required>
+              <option value="">-- Pilih Stasiun --</option>
+              <optgroup
+                th:each="stCity : ${stationByCity}"
+                th:label="${stCity.key}"
+              >
+                <option
+                  th:each="s : ${stCity.value}"
+                  th:value="${s.id}"
+                  th:text="${s.stationName} + ' (' + ${s.stationCode} + ')'"
+                ></option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>ARRIVAL STATION :</label>
+            <select th:field="*{arrivalStation}" required>
+              <option value="">-- Pilih Stasiun --</option>
+              <optgroup
+                th:each="stCity : ${stationByCity}"
+                th:label="${stCity.key}"
+              >
+                <option
+                  th:each="s : ${stCity.value}"
+                  th:value="${s.id}"
+                  th:text="${s.stationName} + ' (' + ${s.stationCode} + ')'"
+                ></option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>DISTANCE :</label>
+            <input
+              type="number"
+              th:field="*{distance}"
+              min="0.1"
+              step="0.1"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>BASE PRICE :</label>
+            <input
+              type="number"
+              th:field="*{basePrice}"
+              min="0.1"
+              step="0.1"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>ACTIVE :</label>
+            <select th:field="*{active}" class="small-input">
+              <option th:value="true">Active</option>
+              <option th:value="false">Tidak</option>
+            </select>
+          </div>
+
+          <div class="error-container" th:if="${error}">
+            <p class="error-text" th:text="${error}"></p>
+          </div>
+
+          <div class="form-action">
+            <button type="submit" class="btn-save">SAVE</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="list-wrapper">
+        <div class="grid-container">
+          <div th:each="r : ${routes}" class="route-card">
+            <div class="card-header">
+              <span
+                th:text="${r.departureStation.stationName} + ' (' + ${r.departureStation.stationCode} + ')'"
+              ></span>
+              <span class="connector-line"></span>
+              <span
+                th:text="${r.arrivalStation.stationName} + ' (' + ${r.arrivalStation.stationCode} + ')'"
+              ></span>
+            </div>
+            <p>
+              <strong>DISTANCE :</strong>
+              <span th:text="${r.distance} + ' km'"></span>
+            </p>
+            <p>
+              <strong>BASE PRICE :</strong>
+              <span th:text="'Rp ' + ${r.basePrice}"></span>
+            </p>
+            <p>
+              <strong>ACTIVE :</strong>
+              <span th:text="${r.active} ? 'Yes' : 'No'"></span>
+            </p>
+            <div class="card-actions">
+              <a th:href="@{'/route/update/' + ${r.id}}" class="action-btn"
+                >UPDATE</a
+              >
+              <a th:href="@{'/route/' + ${r.id}}" class="action-btn">DELETE</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h3>CONTACT US</h3>
+
+      <img th:src="@{/aset/github.png}" alt="github" />
+
+      <img th:src="@{/aset/ig.png}" alt="ig" />
+
+      <img th:src="@{/aset/wa.png}" alt="wa" />
+    </footer>
+  </body>
+</html>

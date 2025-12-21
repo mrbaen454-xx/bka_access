@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>BKA ACCESS - Registrasi</title>
+    <link rel="stylesheet" th:href="@{/css/registrasi.css}">
+</head>
+<body>
+    <header class="header-logo">
+        <div>
+         <img th:src="@{/aset/bka.png}" alt="Logo BKA" class="logo-box">
+
+        </div>
+        <a th:href="@{/}">ACCESS</a>
+    </header>
+
+    <main class="container">
+        <div class="form-section">
+            <div class="card">
+                <form th:action="@{/registrasi}" th:object="${user}" method="post">
+                    <div class="input-group">
+                        <label for="name">NAME:</label>
+                        <input type="text" name="name" id="name" th:field="*{name}" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">EMAIL:</label>
+                        <input type="email" name="email" id="email" th:field="*{email}" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">PASSWORD:</label>
+                        <input type="password" name="password" id="password" th:field="*{password}" required>
+                    </div>
+                    
+                    <p th:if="${error}" th:text="${error}" class="error-text"></p>
+                    
+                    <button type="submit" class="btn-gradient">REGISTAR</button>
+                    
+                    <div class="link-footer">
+                        <a th:href="@{/login}">LOGIN</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="image-section">
+            <img th:src="@{/aset/kreta.png}" alt="Kereta">
+        </div>
+    </main>
+    <footer>
+        <h3>CONTACT US</h3>
+        <img th:src="@{/aset/github.png}" alt="github">
+        <img th:src="@{/aset/ig.png}" alt="ig">
+        <img th:src="@{/aset/wa.png}" alt="wa">
+    </footer>
+</body>
+</html>

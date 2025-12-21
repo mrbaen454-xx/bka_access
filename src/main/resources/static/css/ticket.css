@@ -1,0 +1,114 @@
+/* Reset Dasar */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+
+/* Header sesuai Gambar 17 */
+.site-header {
+    background-color: #0b132b;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-left { display: flex; align-items: center; gap: 10px; }
+.logo-icon { height: 35px; }
+.header-right { display: flex; gap: 25px; align-items: center; }
+.header-right a { color: white; text-decoration: none; font-size: 0.9rem; font-weight: bold; }
+.nav-icon-group { display: flex; align-items: center; gap: 8px; }
+.nav-icon-group img { height: 22px; }
+
+/* Main Container */
+.main-container { padding: 20px 50px; color: #1a233a; }
+.page-title { font-size: 2.2rem; font-weight: bold; margin-bottom: 5px; }
+.header-line { border: 0; border-top: 4px solid #0b132b; margin-bottom: 30px; }
+
+/* Kartu Tiket sesuai Gambar 17 */
+.ticket-list { display: flex; flex-direction: column; gap: 20px; }
+.ticket-card {
+    border: 1px solid #999;
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 500px; /* Ukuran kotak tiket sesuai gambar */
+    position: relative;
+}
+
+/* Row & Info Alignment */
+.info-row { display: flex; margin-bottom: 12px; font-weight: bold; font-size: 1rem; }
+.label { width: 180px; }
+.colon { width: 30px; }
+.value-bold { font-weight: 900; }
+
+/* Route & Time Display (Garis Penghubung) */
+.route-display, .time-display {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+.connector-line {
+    flex: 0 0 60px;
+    height: 4px;
+    background-color: #1a233a;
+    margin: 0 15px;
+}
+.connector-line-thin {
+    flex: 0 0 60px;
+    height: 3px;
+    background-color: #1a233a;
+    margin: 0 15px;
+}
+.station, .time { font-size: 1.1rem; }
+
+/* Tombol Cancel Lonjong */
+.action-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.btn-cancel {
+    background-color: #c4c4c4;
+    color: #000;
+    text-decoration: none;
+    border: 2px solid #000;
+    padding: 10px 50px;
+    border-radius: 25px; /* Lonjong sempurna */
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn-cancel:hover { background-color: #a8a8a8; }
+/* Error Message Style */
+.error-container {
+    margin-left: 50px; /* Sejajar dengan kotak input */
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.error-text {
+    color: #d90429;
+    font-weight: bold;
+    font-size: 0.9rem;
+    background: rgba(217, 4, 41, 0.1);
+    padding: 8px;
+    border-radius: 8px;
+    border-left: 4px solid #d90429;
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    border-top: 2px solid #0b132b;
+    margin-top: 20px;
+}
+
+footer h3 {
+    font-size: 1rem;
+    color: #0b132b;
+    font-weight: bold;
+}
+
+footer img {
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}

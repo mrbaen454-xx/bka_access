@@ -1,0 +1,119 @@
+/* Reset & Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header */
+.site-header {
+    background-color: #0b132b;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left { display: flex; align-items: center; gap: 10px; }
+.logo-icon { height: 30px; }
+.header-right { display: flex; gap: 15px; align-items: center; }
+.header-right a { color: white; text-decoration: none; font-size: 0.75rem; font-weight: bold; }
+.nav-icon-group { display: flex; align-items: center; gap: 5px; }
+.nav-icon-group img { height: 18px; }
+
+/* Main Styling */
+.main-container { padding: 20px 50px; }
+
+.page-title {
+    font-size: 2.2rem;
+    color: #1a233a;
+    font-weight: bold;
+}
+
+.header-line {
+    border: 0;
+    border-top: 4px solid #0b132b;
+    margin-bottom: 25px;
+}
+
+/* Carriage Info Section */
+.carriage-info-wrapper {
+    margin-left: 100px;
+    margin-bottom: 30px;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #1a233a;
+}
+
+.info-row label {
+    width: 220px;
+}
+
+/* Divider Line */
+.content-divider {
+    border: 0;
+    border-top: 4px solid #0b132b;
+    margin-bottom: 40px;
+}
+
+/* Seat Grid Styling */
+.seat-grid {
+    display: grid;
+    /* Membuat 4 kolom seperti pada gambar */
+    grid-template-columns: repeat(4, 120px); 
+    gap: 50px 100px; /* Jarak antar baris dan kolom */
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.seat-item {
+    background-color: #1a233a; /* Warna biru gelap sesuai gambar */
+    height: 55px;
+    width: 120px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.seat-item:hover {
+    transform: scale(1.05);
+    background-color: #24304d;
+}
+
+.seat-label {
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    border-top: 2px solid #0b132b;
+    margin-top: 20px;
+}
+
+footer h3 {
+    font-size: 1rem;
+    color: #0b132b;
+    font-weight: bold;
+}
+
+footer img {
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}

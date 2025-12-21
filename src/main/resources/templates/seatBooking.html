@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>BKA ACCESS - Seat Booking</title>
+    <link rel="stylesheet" th:href="@{/css/seatBooking.css}" />
+    <script>
+      document.querySelectorAll(".seat-item label").forEach((label) => {
+        label.addEventListener("click", function () {
+          const checkbox = this.querySelector('input[type="checkbox"]');
+
+          // Jika tidak disabled (belum dipesan)
+          if (!checkbox.disabled) {
+            // Toggle status checked (ditangani otomatis oleh label,
+            // tapi kita bisa tambahkan efek suara atau validasi di sini)
+            console.log("Seat selected: " + checkbox.value);
+          }
+        });
+      });
+
+      // // Validasi jumlah kursi (Opsional)
+      // document.getElementById('seatForm').addEventListener('submit', function(e) {
+      //     const selectedSeats = document.querySelectorAll('input[name="seatId"]:checked').length;
+      //     if (selectedSeats === 0) {
+      //         alert("Silahkan pilih minimal satu kursi!");
+      //         e.preventDefault();
+      //     }
+      // });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-left">
+        <img th:src="@{/aset/bka.png}" alt="Logo BKA" class="logo-icon" />
+        <h1>ACCESS</h1>
+      </div>
+      <nav class="header-right">
+        <a th:href="@{/booking/delete/buy/{id}(id=${booking.id})}">CANCEL</a>
+        <a th:href="@{/ticket}">TICKET</a>
+        <div class="nav-icon-group">
+          <img th:src="@{/aset/profile.png}" alt="profile" />
+          <a th:href="@{/profile}">PROFILE</a>
+        </div>
+        <div class="nav-icon-group">
+          <img th:src="@{/aset/logout.png}" alt="logout" />
+          <a th:href="@{/}">LOGOUT</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-container">
+      <h1 class="page-title">SEAT BOOKING</h1>
+      <hr class="header-line" />
+
+      <div class="selection-section">
+        <form
+          th:action="@{/seatBooking/{id}(id=${booking.id})}"
+          method="get"
+          class="form-row"
+        >
+          <label>TYPE CARRIAGE :</label>
+          <select name="typeCarriage" required>
+            <option value="">-- Pilih Type --</option>
+            <option
+              th:each="t : ${types}"
+              th:value="${t}"
+              th:text="${t}"
+            ></option>
+          </select>
+          <button type="submit" class="btn-pill">NEXT</button>
+          <div class="error-container" th:if="${error}">
+            <p class="error-text" th:text="${error}"></p>
+          </div>
+        </form>
+      </div>
+
+      <hr class="header-line" th:if="${typeCarriage}" />
+
+      <div th:if="${typeCarriage}" class="seat-selection-area">
+        <form th:action="@{/seatBooking}" method="post" id="seatForm">
+          <input type="hidden" name="bookingId" th:value="${booking.id}" />
+
+          <div class="seat-grid">
+            <div th:each="seat : ${seats}" class="seat-item">
+              <label
+                th:classappend="${seat.booked} ? 'seat-booked' : 'seat-available'"
+              >
+                <input
+                  type="checkbox"
+                  name="seatId"
+                  th:value="${seat.id}"
+                  th:disabled="${seat.booked}"
+                  class="hidden-checkbox"
+                />
+
+                <div class="seat-box">
+                  <span th:text="${seat.seatNumber}"></span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="submit-container">
+            <button type="submit" class="btn-pill">BUY</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <h3>CONTACT US</h3>
+      <div class="footer-icons">
+        <img th:src="@{/aset/github.png}" alt="github" />
+        <img th:src="@{/aset/ig.png}" alt="ig" />
+        <img th:src="@{/aset/wa.png}" alt="wa" />
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>BKA ACCESS - Ticket</title>
+    <link rel="stylesheet" th:href="@{/css/ticket.css}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-left">
+            <img th:src="@{/aset/bka.png}" alt="Logo BKA" class="logo-icon">
+            <h1>ACCESS</h1>
+        </div>
+        <nav class="header-right">
+          <a th:href="@{/user}">HOME</a>
+            <div class="nav-icon-group">
+                <img th:src="@{/aset/profile.png}" alt="profile">
+                <a th:href="@{/profile}">PROFILE</a>
+            </div>
+            <div class="nav-icon-group">
+                <img th:src="@{/aset/logout.png}" alt="logout">
+                <a th:href="@{/}">LOGOUT</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <h1 class="page-title">TICKET</h1>
+        <hr class="header-line">
+
+          <div class="error-container" th:if="${error}">
+            <p class="error-text" th:text="${error}"></p>
+          </div>
+        <div class="ticket-list">
+            <div th:each="ticket : ${tickets}" class="ticket-card">
+                <div class="info-row">
+                    <span class="label">NAMA</span>
+                    <span class="colon">:</span>
+                    <span class="value" th:text="${ticket.booking.user.name}"></span>
+                </div>
+                <div class="info-row">
+                    <span class="label">EMAIL</span>
+                    <span class="colon">:</span>
+                    <span class="value" th:text="${ticket.booking.user.email}"></span>
+                </div>
+                <div class="route-display">
+                    <span class="station" th:text="${ticket.booking.schedule.route.departureStation.stationName}"></span>
+                    <span class="connector-line"></span>
+                    <span class="station" th:text="${ticket.booking.schedule.route.arrivalStation.stationName}"></span>
+                </div>
+                <div class="time-display">
+                    <span class="time" th:text="${ticket.booking.schedule.departureTime}"></span>
+                    <span class="connector-line-thin"></span>
+                    <span class="time" th:text="${ticket.booking.schedule.arrivalTime}"></span>
+                </div>
+                <div class="info-row train-name">
+                    <span class="value-bold" th:text="${ticket.booking.schedule.train.trainName + ' (' + ticket.booking.schedule.train.trainCode + ')'}"></span>
+                </div>
+                <div class="info-row">
+                    <span class="label">TYPE</span>
+                    <span class="colon">:</span>
+                    <span class="value" th:text="${ticket.seat.carriage.type}"></span>
+                </div>
+                <div class="info-row">
+                    <span class="label">SEAT NUMBER</span>
+                    <span class="colon">:</span>
+                    <span class="value" th:text="${ticket.seat.seatNumber}"></span>
+                </div>
+
+                <div class="action-container">
+                    <a th:href="@{'/ticket/delete/' +${ticket.id}}" class="btn-cancel">CANCEL</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+      <footer>
+        <h3>CONTACT US</h3>
+        <img th:src="@{/aset/github.png}" alt="github">
+        <img th:src="@{/aset/ig.png}" alt="ig">
+        <img th:src="@{/aset/wa.png}" alt="wa">
+    </footer>
+</body>
+</html>

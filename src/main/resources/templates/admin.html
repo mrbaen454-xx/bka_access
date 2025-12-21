@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>BKA ACCESS - Admin</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-left">
+            <img th:src="@{/aset/bka.png}" alt="Logo BKA" class="logo-icon">
+            <h1>ACCESS</h1>
+        </div>
+        <nav class="header-right">
+            <a th:href="@{/admin}">HOME</a>
+            <a th:href="@{/station}">STATION</a>
+            <a th:href="@{/route}">ROUTE</a>
+            <a th:href="@{/train}">TRAIN</a>
+            <a th:href="@{/schedule}">SCHEDULE</a>
+            <a th:href="@{/tiketAll}">TICKET</a>
+            <div class="nav-icon-group">
+                <img th:src="@{/aset/profile.png}" alt="profile">
+                <a th:href="@{/profile/admin}">PROFILE</a>
+            </div>
+            <div class="nav-icon-group">
+                <img th:src="@{/aset/logout.png}" alt="logout">
+                <a th:href="@{/}">LOGOUT</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <div class="content-text">
+            <h1 class="welcome-title">SELAMAT DATANG <br> ADMIN</h1>
+            <p class="subtitle">
+                KELOLA BKA ACCSESS <br>
+                DENGAN JUJUR DAN <br>
+                AMANAH, SELAMAT BEKERJA <br>
+                SUKSES SELALU
+            </p>
+        </div>
+        
+        <div class="content-image">
+            <img th:src="@{/aset/kreta.png}" alt="Kereta">
+        </div>
+    </main>
+
+   <footer>
+        <h3>CONTACT US</h3>
+        <img th:src="@{/aset/github.png}" alt="github">
+        <img th:src="@{/aset/ig.png}" alt="ig">
+        <img th:src="@{/aset/wa.png}" alt="wa">
+    </footer>
+</body>
+</html>

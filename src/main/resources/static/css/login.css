@@ -1,0 +1,161 @@
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+/* Header */
+.site-header {
+    background-color: #0b132b;
+    padding: 15px 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.site-header a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo-icon {
+    height: 40px;
+}
+
+/* Garis Pembatas (HR) */
+hr {
+    border: 0;
+    border-top: 2px solid #0b132b; /* Garis biru gelap yang tebal */
+    margin: 0;
+}
+
+/* Main Wrapper (Kontainer Tengah) */
+.main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 60px 10%;
+    min-height: 70vh;
+}
+
+/* Kotak Login Biru Gelap */
+.login-card {
+    background-color: #0b132b; /* Warna latar belakang gelap sesuai gambar */
+    padding: 40px;
+    border-radius: 12px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Group Input (Email & Password) */
+.input-group {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: none; /* Label disembunyikan jika ingin mirip kotak putih polos di gambar */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background-color: #ffffff;
+}
+
+/* Tombol Login */
+.btn-login {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 40px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 180px;
+}
+
+.btn-login:hover {
+    background-color: white;
+    color: #0b132b;
+}
+
+.action-group {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Link Registrasi */
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Bagian Gambar */
+.image-card {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.image-card img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    border-top: 2px solid #0b132b;
+    margin-top: 20px;
+}
+
+footer h3 {
+    font-size: 1rem;
+    color: #0b132b;
+    font-weight: bold;
+}
+
+footer img {
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Error Message */
+.error-msg {
+    color: #ff4d4d;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+}

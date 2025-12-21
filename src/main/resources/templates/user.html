@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/user.css}">
+  </head>
+  <body>
+     <header class="site-header">
+        <div class="header-left">
+            <img th:src="@{/aset/bka.png}" alt="Logo BKA" class="logo-icon">
+            <h1>ACCESS</h1>
+        </div>
+        <nav class="header-right">
+            <a th:href="@{/ticket}">TICKET</a>
+            <div class="nav-icon-group">
+                <img th:src="@{/aset/profile.png}" alt="profile">
+                <a th:href="@{/profile}">PROFILE</a>
+            </div>
+            <div class="nav-icon-group">
+                <img th:src="@{/aset/logout.png}" alt="logout">
+                <a th:href="@{/}">LOGOUT</a>
+            </div>
+        </nav>
+    </header>
+    <main class="main-container">
+    <div class="left-content">
+        <h1 class="welcome-title">SELAMAT DATANG DI <br> BKA ACCESS</h1>
+        
+        <div class="search-box">
+            <form th:action="@{/serchSchedule}" method="get">
+                <div class="form-group">
+                    <label>DEPARTURE STATION :</label>
+                    <select name="departureStation" required>
+                        <option value="">-- Pilih Stasiun --</option>
+                        <optgroup th:each="stCity : ${stationByCity}" th:label="${stCity.key}">
+                            <option th:each="s : ${stCity.value}" th:value="${s.stationName}"
+                                    th:text="${s.stationName} + ' (' + ${s.stationCode} + ')'"></option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>ARRIVAL STATION :</label>
+                    <select name="arrivalStation" required>
+                        <option value="">-- Pilih Stasiun --</option>
+                        <optgroup th:each="stCity : ${stationByCity}" th:label="${stCity.key}">
+                            <option th:each="s : ${stCity.value}" th:value="${s.stationName}"
+                                    th:text="${s.stationName} + ' (' + ${s.stationCode} + ')'"></option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <div class="search-button-container">
+                    <button type="submit" class="btn-search">SEARCH</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="content-image">
+        <img th:src="@{/aset/kreta.png}" alt="Kereta">
+    </div>
+</main>
+    <footer>
+        <h3>CONTACT US</h3>
+        <img th:src="@{/aset/github.png}" alt="github">
+        <img th:src="@{/aset/ig.png}" alt="ig">
+        <img th:src="@{/aset/wa.png}" alt="wa">
+    </footer>
+
+  </body>
+</html>

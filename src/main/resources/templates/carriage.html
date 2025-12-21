@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/carriage.css}" /> 
+  </head>
+  <body>
+    <header class="site-header">
+    <div class="header-left">
+        <img th:src="@{/aset/bka.png}" alt="Logo BKA" class="logo-icon">
+        <h1>ACCESS</h1>
+    </div>
+    <nav class="header-right">
+        <a th:href="@{/admin}">HOME</a>
+        <a th:href="@{/station}">STATION</a>
+        <a th:href="@{/route}">ROUTE</a>
+        <a th:href="@{/train}">TRAIN</a>
+        <a th:href="@{/schedule}">SCHEDULE</a>
+        <a th:href="@{/tiketAll}">TICKET</a>
+        <div class="nav-icon-group">
+            <img th:src="@{/aset/profile.png}" alt="profile">
+            <a th:href="@{/profile/admin}">PROFILE</a>
+        </div>
+        <div class="nav-icon-group">
+            <img th:src="@{/aset/logout.png}" alt="logout">
+            <a th:href="@{/}">LOGOUT</a>
+        </div>
+    </nav>
+</header>
+
+<main class="main-container">
+    <h1 class="page-title">CARRIAGE</h1>
+    <hr class="header-line">
+
+    <p class="train-info">
+        Train: <b th:text="${train.trainName} + ' (' + ${train.trainCode} + ')'"></b>
+    </p>
+
+    <section class="form-wrapper">
+        <form th:action="${mode == 'update'} ? @{|/carriage/update/${carriage.id}/${train.id}|} : @{/carriage/{id}(id=${train.id})}" method="post" th:object="${carriage}">
+            <input type="hidden" name="carriageId" th:field="*{id}">
+            
+            <div class="form-group">
+                <label>CARRIAGE NUMBER :</label>
+                <input type="text" th:field="*{carriageNumber}" required />
+            </div>
+            
+            <div class="form-group">
+                <label>TYPE :</label>
+                <select th:field="*{type}" required class="small-input">
+                    <option value="">-- Pilih --</option>
+                    <option th:each="t : ${types}" th:value="${t}" th:text="${t}"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>SEAT COUNT :</label>
+                <input type="number" min="0" th:field="*{seatCount}" required>
+            </div>
+
+            <div class="error-container" th:if="${error}">
+                <p class="error-text" th:text="${error}"></p>
+            </div>
+
+            <div class="form-action">
+                <button type="submit" class="btn-save">SAVE</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="list-wrapper">
+        <div class="grid-container">
+            <div th:each="c : ${carriages}" class="data-card">
+                <p><strong>CARRIAGE NUMBER :</strong> <span th:text="${c.carriageNumber}"></span></p>
+                <p><strong>TYPE :</strong> <span th:text="${c.type}"></span></p>
+                <p><strong>SEAT COUNT :</strong> <span th:text="${c.seatCount}"></span></p>
+                
+                <div class="card-actions">
+                    <a th:href="@{/seat/{id}(id=${c.id})}">SEAT</a>
+                    <a th:href="@{|/carriage/update/${c.id}/${train.id}|}">UPDATE</a>
+                    <a th:href="@{|/carriage/delete/${c.id}/${train.id}|}">DELETE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+    <footer>
+        <h3>CONTACT US</h3>
+        <img th:src="@{/aset/github.png}" alt="github">
+        <img th:src="@{/aset/ig.png}" alt="ig">
+        <img th:src="@{/aset/wa.png}" alt="wa">
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+/* Reset & Header */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+
+.site-header {
+    background-color: #0b132b;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-left { display: flex; align-items: center; gap: 10px; }
+.logo-icon { height: 35px; }
+.header-right { display: flex; gap: 20px; align-items: center; }
+.header-right a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
+.nav-icon-group { display: flex; align-items: center; gap: 5px; }
+.nav-icon-group img { height: 20px; }
+
+/* Main Container */
+.main-container { padding: 20px 50px; }
+.page-title { font-size: 2.2rem; color: #1a233a; font-weight: bold; margin-bottom: 5px; }
+.header-line { border: 0; border-top: 4px solid #0b132b; margin-bottom: 40px; }
+
+/* Grid Kartu */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 30px;
+}
+
+.schedule-card {
+    border: 2px solid #999;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    color: #1a233a;
+}
+
+/* Row Styling (Stasiun & Waktu) */
+.row-display {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.connector-line {
+    flex: 0 0 60px;
+    height: 4px;
+    background-color: #1a233a;
+    margin: 0 15px;
+}
+
+.train-info {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Detail Informasi */
+.detail-info { margin-bottom: 15px; }
+.info-line {
+    display: flex;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.info-line label { width: 140px; }
+.info-line .colon { width: 30px; }
+
+.time-row { margin-top: 10px; }
+
+/* Tombol BUY Lonjong */
+.card-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn-buy {
+    background-color: #c4c4c4;
+    color: #000;
+    text-decoration: none;
+    border: 2px solid #000;
+    padding: 10px 60px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-buy:hover { background-color: #a8a8a8; }
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    border-top: 2px solid #0b132b;
+    margin-top: 20px;
+}
+
+footer h3 {
+    font-size: 1rem;
+    color: #0b132b;
+    font-weight: bold;
+}
+
+footer img {
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/serchSchedule.css}">
+</head>
+<body>
+   <header class="site-header">
+    <div class="header-left">
+        <img th:src="@{/aset/bka.png}" alt="Logo BKA" class="logo-icon">
+        <h1>ACCESS</h1>
+    </div>
+    <nav class="header-right">
+        <a th:href="@{/user}">HOME</a>
+        <a th:href="@{/ticket}">TICKET</a>
+        <div class="nav-icon-group">
+            <img th:src="@{/aset/profile.png}" alt="profile">
+            <a th:href="@{/profile}">PROFILE</a>
+        </div>
+        <div class="nav-icon-group">
+            <img th:src="@{/aset/logout.png}" alt="logout">
+            <a th:href="@{/}">LOGOUT</a>
+        </div>
+    </nav>
+</header>
+
+<main class="main-container">
+    <h1 class="page-title">SCHEDULE</h1>
+    <hr class="header-line">
+
+    <div class="schedule-grid">
+        <div th:each="s : ${schedules}" class="schedule-card">
+            <div class="row-display">
+                <span class="station-name" th:text="${s.route.departureStation.stationName}"></span>
+                <span class="connector-line"></span>
+                <span class="station-name" th:text="${s.route.arrivalStation.stationName}"></span>
+            </div>
+
+            <p class="train-info" th:text="${s.train.trainName + ' (' + s.train.trainCode + ')'}"></p>
+
+            <div class="detail-info">
+                <div class="info-line">
+                    <label>DISTANCE</label>
+                    <span class="colon">:</span>
+                    <span th:text="${s.route.distance} + ' km'"></span>
+                </div>
+                <div class="info-line">
+                    <label>BASE PRICE</label>
+                    <span class="colon">:</span>
+                    <span th:text="'Rp ' + ${s.route.basePrice}"></span>
+                </div>
+            </div>
+
+            <div class="row-display time-row">
+                <span th:text="${#temporals.format(s.departureTime, 'dd MMM yyyy HH:mm')}"></span>
+                <span class="connector-line"></span>
+                <span th:text="${#temporals.format(s.arrivalTime, 'dd MMM yyyy HH:mm')}"></span>
+            </div>
+
+            <div class="card-action">
+                <a th:href="@{/booking/{id}(id=${s.id})}" class="btn-buy">BUY</a>
+            </div>
+        </div>
+    </div>
+</main>
+    <footer>
+        <h3>CONTACT US</h3>
+        <img th:src="@{/aset/github.png}" alt="github">
+        <img th:src="@{/aset/ig.png}" alt="ig">
+        <img th:src="@{/aset/wa.png}" alt="wa">
+    </footer>
+</body>
+</html>

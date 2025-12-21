@@ -1,0 +1,125 @@
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Anda bisa ganti dengan font Montserrat atau Roboto */
+}
+
+body {
+    background-color: #ffffff;
+    color: #1a233a;
+}
+
+/* Header */
+.site-header {
+    background-color: #0b132b; /* Warna biru gelap */
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    height: 40px; /* Sesuaikan ukuran logo */
+}
+
+.site-header h1 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+/* Container Utama */
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10% 40px 10%; /* Memberi ruang di sisi kanan kiri */
+    min-height: 70vh;
+}
+
+/* Teks di Kiri */
+.content-text {
+    flex: 1;
+    max-width: 500px;
+}
+
+.content-text h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    color: #1a233a;
+}
+
+/* Tombol Login */
+.btn-login {
+    display: inline-block;
+    background-color: #0b132b;
+    color: white;
+    padding: 12px 45px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #1c2a4a;
+}
+
+/* Gambar di Kanan */
+.content-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 30px; /* Membuat sudut melengkung seperti di gambar */
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    border-top: 2px solid #0b132b;
+    margin-top: 20px;
+}
+
+footer h3 {
+    font-size: 1rem;
+    color: #0b132b;
+    font-weight: bold;
+}
+
+footer img {
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+    }
+    
+    .content-image {
+        margin-top: 40px;
+        justify-content: center;
+    }
+    
+    .content-text h1 {
+        font-size: 2rem;
+    }
+}

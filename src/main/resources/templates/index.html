@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>BKA ACCESS</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+    <header class="site-header">
+        <div >
+            <img th:src="@{/aset/bka.png}" alt="logo" class="logo-icon">
+        </div>
+        <h1>ACCESS</h1>
+    </header>
+    <hr>
+    
+    <div class="main-container">
+        <div class="content-text">
+            <h1>CAPAI TUJUAN ANDA MELALUI BKA ACCESS</h1>
+            <a th:href="@{/login}" class="btn-login">LOGIN</a>
+        </div>
+        
+        <div class="content-image">
+            <img th:src="@{/aset/kreta.png}" alt="Kereta">
+        </div>
+    </div>
+  <footer>
+        <h3>CONTACT US</h3>
+        <img th:src="@{/aset/github.png}" alt="github">
+        <img th:src="@{/aset/ig.png}" alt="ig">
+        <img th:src="@{/aset/wa.png}" alt="wa">
+    </footer>
+</body>
+</html>

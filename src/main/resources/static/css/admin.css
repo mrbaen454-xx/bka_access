@@ -1,0 +1,121 @@
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+/* Header & Navigasi */
+.site-header {
+    background-color: #0b132b;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    height: 40px;
+}
+
+.header-right {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.header-right a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.nav-icon-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-icon-group img {
+    height: 20px; /* Ikon profil & logout */
+}
+
+/* Kontainer Utama */
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+    min-height: 70vh;
+    border-top: 2px solid #0b132b; /* Garis hitam di bawah header */
+}
+
+/* Teks Selamat Datang */
+.content-text {
+    flex: 1;
+}
+
+.welcome-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #1a233a;
+    margin-bottom: 40px;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    color: #1a233a;
+    font-weight: 600;
+    line-height: 1.2;
+    padding-left: 100px; /* Memberikan indentasi agar teks ke tengah seperti gambar */
+}
+
+/* Gambar Kereta */
+.content-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content-image img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    border-top: 2px solid #0b132b;
+    margin-top: 20px;
+}
+
+footer h3 {
+    font-size: 1rem;
+    color: #0b132b;
+    font-weight: bold;
+}
+
+footer img {
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>BKA ACCESS - Admin</title>
+    <!-- <link rel="stylesheet" th:href="@{/css/admin.css}"> -->
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-left">
+        <img th:src="@{/aset/bka.png}" alt="Logo BKA" class="logo-icon" />
+        <h1>ACCESS</h1>
+      </div>
+      <nav class="header-right">
+        <a th:href="@{/admin/home}">HOME</a>
+        <a th:href="@{/station}">STATION</a>
+        <a th:href="@{/route}">ROUTE</a>
+        <a th:href="@{/train}">TRAIN</a>
+        <a th:href="@{/schedule}">SCHEDULE</a>
+        <div class="nav-icon-group">
+          <img th:src="@{/aset/profile.png}" alt="profile" />
+          <a th:href="@{/profile/admin}">PROFILE</a>
+        </div>
+        <div class="nav-icon-group">
+          <img th:src="@{/aset/logout.png}" alt="logout" />
+          <a th:href="@{/}">LOGOUT</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div th:each="tiket : ${tikets}">
+        <div th:each="tiket : ${tikets}">
+          <p th:text="${tiket.booking?.user?.name}">No user</p>
+          <p th:text="${tiket.booking?.user?.email}">No email</p>
+          <b
+            th:text="${tiket.booking?.schedule?.route?.departureStation?.stationName + '(' + tiket.booking?.schedule?.route?.departureStation?.stationCode + ')' + ' - ' + tiket.booking?.schedule?.route?.arrivalStation?.stationName + '(' + tiket.booking?.schedule?.route?.arrivalStation?.stationCode + ')' }"
+            >No route</b
+          >
+          <p
+            th:text="${tiket.booking?.schedule?.departureTime + ' - ' + tiket.booking?.schedule?.arrivalTime}"
+          >
+            No time
+          </p>
+          <p
+            th:text="${tiket.booking?.schedule?.train?.trainName + '(' + tiket.booking?.schedule?.train?.trainCode + ')' }"
+          >
+            No train
+          </p>
+          <p th:text="${tiket.seat?.carriage?.type}">No carriage type</p>
+          <p th:text="'Seat: ' + ${tiket.seat?.seatNumber}">No seat</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <h3>CONTACT US</h3>
+      <img th:src="@{/aset/github.png}" alt="github" />
+      <img th:src="@{/aset/ig.png}" alt="ig" />
+      <img th:src="@{/aset/wa.png}" alt="wa" />
+    </footer>
+  </body>
+</html>
