@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>BKA ACCESS - Admin</title>
-    <!-- <link rel="stylesheet" th:href="@{/css/admin.css}"> -->
+    <link rel="stylesheet" th:href="@{/css/ticketAll.css}">
   </head>
   <body>
     <header class="site-header">
@@ -11,7 +11,7 @@
         <h1>ACCESS</h1>
       </div>
       <nav class="header-right">
-        <a th:href="@{/admin/home}">HOME</a>
+        <a th:href="@{/admin}">HOME</a>
         <a th:href="@{/station}">STATION</a>
         <a th:href="@{/route}">ROUTE</a>
         <a th:href="@{/train}">TRAIN</a>
@@ -27,31 +27,61 @@
       </nav>
     </header>
 
-    <main>
-      <div th:each="tiket : ${tikets}">
-        <div th:each="tiket : ${tikets}">
-          <p th:text="${tiket.booking?.user?.name}">No user</p>
-          <p th:text="${tiket.booking?.user?.email}">No email</p>
-          <b
-            th:text="${tiket.booking?.schedule?.route?.departureStation?.stationName + '(' + tiket.booking?.schedule?.route?.departureStation?.stationCode + ')' + ' - ' + tiket.booking?.schedule?.route?.arrivalStation?.stationName + '(' + tiket.booking?.schedule?.route?.arrivalStation?.stationCode + ')' }"
-            >No route</b
-          >
-          <p
-            th:text="${tiket.booking?.schedule?.departureTime + ' - ' + tiket.booking?.schedule?.arrivalTime}"
-          >
-            No time
-          </p>
-          <p
-            th:text="${tiket.booking?.schedule?.train?.trainName + '(' + tiket.booking?.schedule?.train?.trainCode + ')' }"
-          >
-            No train
-          </p>
-          <p th:text="${tiket.seat?.carriage?.type}">No carriage type</p>
-          <p th:text="'Seat: ' + ${tiket.seat?.seatNumber}">No seat</p>
-        </div>
-      </div>
-    </main>
+<main class="main-container">
+    <h1 class="page-title">TICKET</h1>
+    <hr class="header-line">
+    <div class="error-container" th:if="${error}">
+            <p class="error-text" th:text="${error}"></p>
+    </div>
 
+    <div class="ticket-wrapper">
+        <div class="ticket-card" th:each="tiket : ${tikets}">
+            <div class="info-grid">
+                <div class="info-row">
+                    <span class="label">NAMA</span>
+                    <span class="colon">:</span>
+                    <span class="value" th:text="${tiket.booking?.user?.name}">No user</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">EMAIL</span>
+                    <span class="colon">:</span>
+                    <span class="value" th:text="${tiket.booking?.user?.email}">No email</span>
+                </div>
+                <div class="info-row route-row">
+                    <span class="label">DEPARTURE STATION</span>
+                    <span class="line-separator"></span>
+                    <span class="label">ARRIVAL STATION</span>
+                </div>
+                <div class="info-row route-values">
+                    <span class="value" th:text="${tiket.booking?.schedule?.route?.departureStation?.stationName}"></span>
+                    <span class="value arrival" th:text="${tiket.booking?.schedule?.route?.arrivalStation?.stationName}"></span>
+                </div>
+                <div class="info-row time-row">
+                    <span class="label">DEPARTURE TIME</span>
+                    <span class="line-separator"></span>
+                    <span class="label">ARRIVAL TIME</span>
+                </div>
+                <div class="info-row time-values">
+                    <span class="value" th:text="${tiket.booking?.schedule?.departureTime}"></span>
+                    <span class="value arrival" th:text="${tiket.booking?.schedule?.arrivalTime}"></span>
+                </div>
+                <div class="info-row">
+                    <span class="label-full" th:text="${tiket.booking?.schedule?.train?.trainName + ' (' + tiket.booking?.schedule?.train?.trainCode + ')'}">No train</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">TYPE</span>
+                    <span class="colon">:</span>
+                    <span class="value" th:text="${tiket.seat?.carriage?.type}">No type</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">SEAT NUMBER</span>
+                    <span class="colon">:</span>
+                    <span class="value" th:text="${tiket.seat?.seatNumber}">No seat</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
     <footer>
       <h3>CONTACT US</h3>
       <img th:src="@{/aset/github.png}" alt="github" />

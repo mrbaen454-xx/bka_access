@@ -37,12 +37,12 @@
             
             <div class="form-group">
                 <label>TRAIN NAME :</label>
-                <input type="text" th:field="*{trainName}" required />
+                <input type="text" th:field="*{trainName}" minlength="3" maxlength="30" required />
             </div>
             
             <div class="form-group">
                 <label>TRAIN CODE :</label>
-                <input type="text" th:field="*{trainCode}" required />
+                <input type="text" th:field="*{trainCode}" minlength="2" maxlength="5" required />
             </div>
 
             <div class="form-group">

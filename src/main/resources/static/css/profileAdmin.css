@@ -1,7 +1,6 @@
 /* Reset & Global */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
 
-/* Header */
 .site-header {
     background-color: #0b132b;
     color: white;
@@ -17,12 +16,10 @@
 .nav-icon-group { display: flex; align-items: center; gap: 5px; }
 .nav-icon-group img { height: 18px; }
 
-/* Main Content */
 .main-container { padding: 20px 50px; }
 .section-title { font-size: 2.2rem; color: #1a233a; font-weight: bold; }
 .header-line { border: 0; border-top: 4px solid #0b132b; margin-top: 10px; margin-bottom: 30px; }
 
-/* Profile Detail Layout */
 .profile-details { margin-left: 100px; margin-bottom: 40px; }
 .detail-row {
     display: flex;
@@ -34,7 +31,6 @@
 .label { width: 150px; }
 .colon { width: 50px; }
 
-/* Buttons Style */
 .action-center { display: flex; justify-content: center; margin-bottom: 50px; }
 
 .btn-main, .btn-save, .btn-cancel {
@@ -49,7 +45,6 @@
 
 .btn-main:hover, .btn-save:hover, .btn-cancel:hover { background-color: #a8a8a8; }
 
-/* Form Update Layout */
 .profile-update { margin-top: 50px; }
 .form-group {
     display: flex;
@@ -67,7 +62,6 @@
     outline: none;
 }
 
-/* Horizontal Action Row */
 .form-actions-row {
     display: flex;
     justify-content: center;
@@ -75,7 +69,6 @@
     margin-top: 30px;
 }
 
-/* Footer */
 footer {
     display: flex;
     justify-content: space-between;

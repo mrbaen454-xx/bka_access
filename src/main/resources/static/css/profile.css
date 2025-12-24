@@ -1,7 +1,5 @@
-/* Reset & Global */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
 
-/* Header sesuai Gambar 18 */
 .site-header {
     background-color: #0b132b;
     color: white;
@@ -17,14 +15,11 @@
 .nav-icon-group { display: flex; align-items: center; gap: 8px; }
 .nav-icon-group img { height: 22px; }
 
-/* Container Utama */
 .main-container { padding: 20px 50px; }
 
-/* Judul Section & Garis */
 .section-title { font-size: 1.8rem; font-weight: bold; color: #1a233a; margin-bottom: 5px; }
 .header-line { border: 0; border-top: 4px solid #0b132b; margin-bottom: 30px; }
 
-/* Tata Letak Info */
 .info-grid { margin-left: 80px; margin-bottom: 20px; }
 .info-row { 
     display: flex; 
@@ -36,7 +31,6 @@
 .label { width: 150px; }
 .colon { width: 40px; }
 
-/* Input Fields */
 .input-field {
     width: 350px;
     padding: 8px 15px;
@@ -54,7 +48,6 @@
     margin: 0 20px;
 }
 
-/* Tombol Lonjong Abu-abu */
 .btn-gray, .btn-cancel {
     background-color: #c4c4c4;
     color: #000;
@@ -71,17 +64,15 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    margin-top: -40px; /* Menjajajarkan tombol ke kanan sesuai gambar */
+    margin-top: -40px; 
 }
 
-/* Top Up Form Alignment */
 .topup-form {
     display: flex;
     align-items: center;
     margin-bottom: 40px;
 }
 
-/* Footer */
 footer {
     display: flex;
     justify-content: space-between;

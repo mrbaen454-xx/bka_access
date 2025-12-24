@@ -1,4 +1,3 @@
-/* Reset & Header */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
 .site-header { background-color: #0b132b; color: white; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; }
 .header-left { display: flex; align-items: center; gap: 10px; }
@@ -8,12 +7,10 @@
 .nav-icon-group { display: flex; align-items: center; gap: 5px; }
 .nav-icon-group img { height: 18px; }
 
-/* Main Content */
 .main-container { padding: 20px 50px; }
 .page-title { font-size: 2.2rem; color: #1a233a; font-weight: bold; }
 .header-line { border: 0; border-top: 4px solid #0b132b; margin-bottom: 40px; }
 
-/* Form Styling */
 .form-wrapper { max-width: 900px; margin-bottom: 60px; }
 .form-group { display: flex; align-items: center; margin-bottom: 18px; }
 .form-group label { width: 250px; font-weight: bold; color: #1a233a; font-size: 1.1rem; }
@@ -21,12 +18,11 @@
     flex: 1;
     padding: 10px 15px;
     border: 2px solid #000;
-    border-radius: 15px; /* Bentuk lonjong sesuai gambar */
+    border-radius: 15px; 
     outline: none;
     background-color: #fff;
 }
 
-/* Error Message Sejajar */
 .error-container { margin-left: 250px; margin-bottom: 15px; }
 .error-text { 
     color: #d90429; font-weight: bold; font-size: 0.9rem; 
@@ -34,7 +30,6 @@
     border-radius: 8px; border-left: 4px solid #d90429; 
 }
 
-/* Button Save */
 .btn-save {
     display: block;
     margin: 20px auto;
@@ -46,7 +41,6 @@
     cursor: pointer;
 }
 
-/* Schedule Card List */
 .list-wrapper { border-top: 4px solid #0b132b; padding-top: 30px; }
 .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 30px; }
 
@@ -90,7 +84,6 @@
     font-size: 0.95rem;
 }
 
-/* Footer */
 footer {
     display: flex;
     justify-content: space-between;

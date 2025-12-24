@@ -1,6 +1,7 @@
 package com.example.bka.Controllers;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,6 @@ import com.example.bka.Services.SeatBookingService;
 import com.example.bka.Services.UserService;
 
 import jakarta.servlet.http.HttpSession;
-
 @Controller
 public class AdminController {
     @Autowired
@@ -40,19 +40,32 @@ public class AdminController {
     }
 
     @PostMapping("/profile/admin/update")
-    public String updateProfile(User user, HttpSession session) {
-
-        User updatedUser = userService.updateUser(user);
-
-        session.setAttribute("userLogin", updatedUser);
-
-        return "redirect:/profile/admin";
+    public String updateProfile(User user,HttpSession session, Model model) { 
+        try {
+            User updatedUser = userService.updateUser(user);
+    
+            session.setAttribute("userLogin", updatedUser);
+    
+            return "redirect:/profile/admin";
+            
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            User users = (User) session.getAttribute("userLogin");
+            model.addAttribute("user", users);
+            return "profileAdmin";
+        }
     }
     @GetMapping("/tiketAll")
     public String tiketAll(Model model) {
+        try{
+            model.addAttribute("tikets",seatBookingService.getAllSeatBooking());
+             return "tiketAll";
+
+        }catch(IllegalArgumentException e){
+            model.addAttribute("error", e.getMessage());
+            return "tiketAll";
+        }
        
-       model.addAttribute("tikets",seatBookingService.getAllSeatBooking());
-        return "tiketAll";
     }
 
 }

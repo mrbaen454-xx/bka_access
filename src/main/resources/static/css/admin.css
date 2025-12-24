@@ -1,4 +1,3 @@
-/* Reset Dasar */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +9,6 @@ body {
     background-color: #ffffff;
 }
 
-/* Header & Navigasi */
 .site-header {
     background-color: #0b132b;
     color: white;
@@ -50,20 +48,17 @@ body {
 }
 
 .nav-icon-group img {
-    height: 20px; /* Ikon profil & logout */
+    height: 20px; 
 }
 
-/* Kontainer Utama */
 .main-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 80px 10%;
     min-height: 70vh;
-    border-top: 2px solid #0b132b; /* Garis hitam di bawah header */
+    border-top: 2px solid #0b132b; 
 }
-
-/* Teks Selamat Datang */
 .content-text {
     flex: 1;
 }
@@ -81,10 +76,9 @@ body {
     color: #1a233a;
     font-weight: 600;
     line-height: 1.2;
-    padding-left: 100px; /* Memberikan indentasi agar teks ke tengah seperti gambar */
+    padding-left: 100px; 
 }
 
-/* Gambar Kereta */
 .content-image {
     flex: 1;
     display: flex;
@@ -98,7 +92,6 @@ body {
     object-fit: cover;
 }
 
-/* Footer */
 footer {
     display: flex;
     justify-content: space-between;

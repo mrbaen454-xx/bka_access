@@ -80,19 +80,19 @@
             <div class="form-group">
                 <label>NAMA</label>
                 <span class="colon">:</span>
-                <input type="text" name="name" th:value="${user.name}" required>
+                <input type="text" name="name" th:value="${user.name}" minlength="3" maxlength="30" required>
             </div>
             
             <div class="form-group">
                 <label>EMAIL</label>
                 <span class="colon">:</span>
-                <input type="email" name="email" th:value="${user.email}" required>
+                <input type="email" name="email" th:value="${user.email}" minlength="15" maxlength="30" required>
             </div>
 
             <div class="form-group">
                 <label>PASSWORD</label>
                 <span class="colon">:</span>
-                <input type="text" name="password" th:value="${user.password}" required>
+                <input type="text" name="password" th:value="${user.password}" minlength="6" maxlength="20" required>
             </div>
 
             <input type="hidden" name="balance" th:value="${user.balance}">

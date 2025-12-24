@@ -1,6 +1,7 @@
 package com.example.bka.Services;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,11 +38,16 @@ public class SeatBookingService {
         return seatBookingRepository.save(sb);
     }
 
-    public List<SeatBooking> getByBooking(Booking booking) {
-        if (booking == null) {
+    public List<SeatBooking> getByBooking(List<Booking> booking) {
+        if (booking == null || booking.isEmpty()) {
             throw new IllegalArgumentException("Anda belum punya ticktet");
         }
-        return seatBookingRepository.findByBooking(booking);
+        
+        List<SeatBooking> result = new ArrayList<>();
+        for (Booking b : booking) {
+            result.addAll(seatBookingRepository.findByBooking(b));
+        }
+        return result;
     }
 
 
@@ -61,6 +67,11 @@ public class SeatBookingService {
         seatBookingRepository.deleteById(id);
     }
     public List<SeatBooking> getAllSeatBooking() {
+        if (seatBookingRepository.findAll().isEmpty()) {
+            throw new IllegalArgumentException("Tidak ada tiket");
+            
+        }
         return seatBookingRepository.findAll();
     }
 }
+

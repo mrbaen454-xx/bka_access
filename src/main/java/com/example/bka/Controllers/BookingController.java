@@ -51,10 +51,8 @@ public class BookingController {
             User user = (User) session.getAttribute("userLogin");
             Booking booking = bookingService.saveBooking(user, id, ticketCount);
 
-            // simpan di session supaya bisa dipakai saat buy
             session.setAttribute("booking", booking);
 
-            // tambahkan semua atribut ke model agar Thymeleaf aman
             model.addAttribute("booking", booking);
             model.addAttribute("schedule", booking.getSchedule());
             model.addAttribute("totalPayment", booking.getTotalPayment());
@@ -63,11 +61,10 @@ public class BookingController {
             Boolean showBuyButton = (Boolean) session.getAttribute("showBuyButton");
             model.addAttribute("showBuyButton", showBuyButton);
 
-            return "booking"; // tetap di halaman booking, tidak redirect
+            return "booking"; 
         } catch (IllegalArgumentException e) {
             model.addAttribute("error", e.getMessage());
 
-            // tetap tambahkan schedule biar template tidak error
             model.addAttribute("schedule", scheduleService.getSchedule(id));
             return "booking";
         }

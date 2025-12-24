@@ -38,9 +38,7 @@ public class ScheduleService {
     public Schedule saveSchedule(Schedule schedule) {
         
       
-        // =====================
-        // VALIDASI DASAR
-        // =====================
+
         if (!schedule.getDepartureTime().isBefore(schedule.getArrivalTime())) {
             throw new IllegalArgumentException(
                     "Waktu keberangkatan harus sebelum waktu kedatangan");
@@ -62,13 +60,11 @@ public class ScheduleService {
             throw new IllegalArgumentException("Rute harus aktif");
         }
 
-        // =====================
-        // VALIDASI URUTAN RUTE PER KERETA
-        // =====================
         List<Schedule> trainSchedules = scheduleRepository.findByTrainOrderByArrivalTimeDesc(schedule.getTrain());
 
         if (!trainSchedules.isEmpty()) {
             Schedule lastSchedule = trainSchedules.get(0);
+            
             Station lastArrivalStation = lastSchedule.getRoute().getArrivalStation();
             Station newDepartureStation = schedule.getRoute().getDepartureStation();
 
@@ -87,9 +83,6 @@ public class ScheduleService {
             }
         }
 
-        // =====================
-        //VALIDASI JEDA DI STASIUN (DEPARTURE & ARRIVAL) UNTUK SEMUA KERETA
-        // =====================
         List<Schedule> allSchedules = scheduleRepository.findAll();
         if (!allSchedules.isEmpty()) {
             
@@ -106,7 +99,6 @@ public class ScheduleService {
                     == (schedule.getRoute().getDepartureStation().getId())
                     || existing.getRoute().getArrivalStation().getId()
                             ==(schedule.getRoute().getDepartureStation().getId())) {
-//                    10:00           11:20                            10:00               9:40
                 if ((newDep.isBefore(existingArr.plusMinutes(20)) && newDep.isAfter(existingDep.minusMinutes(20))) && schedule.getId() != existing.getId()) {
                     throw new IllegalArgumentException(
                             "Keberangkatan kereta baru di stasiun "
@@ -115,10 +107,8 @@ public class ScheduleService {
                 }
             }
 
-            // CEK JEDA 20 MENIT DI STASIUN TUJUAN
             if ((existing.getRoute().getDepartureStation().getId()
                     == (schedule.getRoute().getArrivalStation().getId())) && schedule.getId() != existing.getId()) {
-//                          11:00               11:20                        11:00                9:40
                 if (newArr.isBefore(existingDep.plusMinutes(20))) {
                     throw new IllegalArgumentException(
                             "Kedatangan kereta baru di stasiun "
@@ -128,13 +118,18 @@ public class ScheduleService {
             }
             
         }
-        List<Booking> bookings = bookingRepository.findBySchedule(schedule);
-        for(Booking b : bookings)
-            {
-                if(b.getSchedule().getId() == schedule.getId()){
-                    throw new IllegalArgumentException("Schedule tidak bisa di update karena sudah memiliki booking");
-                }
+      
+        if (schedule.getId() != null) {
+            Schedule existingSchedule = scheduleRepository
+                    .findById(schedule.getId())
+                    .orElseThrow(() -> new IllegalArgumentException("Schedule tidak ditemukan"));
+
+            if (!existingSchedule.getBooking().isEmpty()) {
+                throw new IllegalArgumentException(
+                        "Schedule tidak bisa diupdate karena sudah memiliki booking");
             }
+        }
+
         }
 
       
@@ -192,6 +187,10 @@ public class ScheduleService {
     }
 
     public List<Schedule> serch(String departureStation, String arrivalStation) {
-        return scheduleRepository.findByRoute_DepartureStation_StationNameContainingAndRoute_ArrivalStation_StationNameContainingAndDepartureTimeAfter(departureStation, arrivalStation, LocalDateTime.now());
+        List <Schedule> schedules = scheduleRepository.findByRoute_DepartureStation_StationNameContainingAndRoute_ArrivalStation_StationNameContainingAndDepartureTimeAfter(departureStation, arrivalStation, LocalDateTime.now());
+        if (schedules.isEmpty()) {
+            throw new IllegalArgumentException("Schedule tidak ditemukan");
+        }
+        return schedules;
     }
 }

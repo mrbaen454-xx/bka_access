@@ -29,11 +29,11 @@ public class RouteService {
         if (route.getDepartureStation().getId() == route.getArrivalStation().getId()) {
             throw new IllegalArgumentException("Stasiun keberangkatan dan kedatangan tidak boleh sama");
         }
-        if (route.getBasePrice() <= 10000 || route.getDistance() < 0) {
+        if (route.getBasePrice() <= 10000 || route.getDistance() <= 0) {
             throw new IllegalArgumentException("Harga atau jarak tidak valid");
         }
         if (route.getDepartureStation().getActive() == false || route.getArrivalStation().getActive() == false) {
-            throw new IllegalArgumentException("Rute harus aktif");
+            throw new IllegalArgumentException("Stasiun harus aktif");
         }
 
         return routeRepository.save(route);

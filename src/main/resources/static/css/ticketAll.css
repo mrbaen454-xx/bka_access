@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+.site-header {
+    background-color: #0b132b;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left { display: flex; align-items: center; gap: 10px; }
+.logo-icon { height: 35px; }
+.header-right { display: flex; gap: 20px; align-items: center; }
+.header-right a { 
+    color: white; 
+    text-decoration: none; 
+    font-size: 0.8rem; 
+    font-weight: bold; 
+}
+
+.nav-icon-group { display: flex; align-items: center; gap: 5px; }
+.nav-icon-group img { height: 20px; }
+
+.main-container {
+    padding: 20px 50px;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a233a;
+    margin-bottom: 5px;
+}
+
+.header-line {
+    border: 0;
+    border-top: 4px solid #0b132b;
+    margin-bottom: 30px;
+}
+
+.ticket-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.ticket-card {
+    border: 1px solid #999;
+    border-radius: 15px;
+    padding: 30px;
+    width: 500px;
+    background-color: #fff;
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #1a233a;
+    font-size: 0.95rem;
+}
+
+.label { width: 180px; }
+.colon { width: 30px; }
+.value { flex: 1; }
+
+.line-separator {
+    height: 3px;
+    background-color: #0b132b;
+    width: 60px;
+    margin: 0 15px;
+}
+
+.route-values, .time-values {
+    margin-top: -8px;
+    margin-bottom: 10px;
+}
+
+.value.arrival {
+    padding-left: 20px;
+}
+
+.label-full {
+    font-size: 1rem;
+    margin-top: 5px;
+}
+.error-container {
+    margin-left: 50px; 
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.error-text {
+    color: #d90429;
+    font-weight: bold;
+    font-size: 0.9rem;
+    background: rgba(217, 4, 41, 0.1);
+    padding: 8px;
+    border-radius: 8px;
+    border-left: 4px solid #d90429;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    border-top: 2px solid #0b132b;
+    margin-top: 20px;
+}
+
+footer h3 {
+    font-size: 1rem;
+    color: #0b132b;
+    font-weight: bold;
+}
+
+footer img {
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}

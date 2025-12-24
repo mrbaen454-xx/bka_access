@@ -42,7 +42,7 @@
             
             <div class="form-group">
                 <label>CARRIAGE NUMBER :</label>
-                <input type="text" th:field="*{carriageNumber}" required />
+                <input type="text" th:field="*{carriageNumber}" minlength="2" maxlength="5" required/>
             </div>
             
             <div class="form-group">
@@ -55,7 +55,7 @@
 
             <div class="form-group">
                 <label>SEAT COUNT :</label>
-                <input type="number" min="0" th:field="*{seatCount}" required>
+                <input type="number" min="10" th:field="*{seatCount}" required>
             </div>
 
             <div class="error-container" th:if="${error}">

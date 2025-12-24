@@ -8,13 +8,11 @@
 .nav-icon-group { display: flex; align-items: center; gap: 5px; }
 .nav-icon-group img { height: 18px; }
 
-/* Main Container */
 .main-container { padding: 20px 50px; }
 .page-title { font-size: 2.2rem; color: #1a233a; font-weight: bold; letter-spacing: 1px; }
 .header-line { border: 0; border-top: 4px solid #0b132b; margin-bottom: 20px; }
 .train-info { margin-bottom: 30px; font-size: 1.1rem; color: #1a233a; }
 
-/* Form Layout */
 .form-wrapper { max-width: 800px; margin-bottom: 50px; }
 .form-group { display: flex; align-items: center; margin-bottom: 20px; }
 .form-group label { width: 250px; font-weight: bold; color: #1a233a; font-size: 1.1rem; }
@@ -22,13 +20,12 @@
     flex: 1;
     padding: 10px 15px;
     border: 2px solid #000;
-    border-radius: 15px; /* Bentuk lonjong sesuai gambar */
+    border-radius: 15px; 
     outline: none;
     font-size: 1rem;
 }
 .form-group .small-input { flex: 0 0 120px; }
 
-/* Error Styling */
 .error-container { margin-left: 250px; margin-bottom: 15px; }
 .error-text { 
     color: #d90429; 
@@ -40,7 +37,6 @@
     border-left: 5px solid #d90429; 
 }
 
-/* Save Button */
 .form-action { display: flex; justify-content: center; }
 .btn-save { 
     background-color: #c4c4c4; 
@@ -53,7 +49,6 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Card List Styling */
 .list-wrapper { border-top: 4px solid #0b132b; padding-top: 40px; }
 .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 30px; }
 .data-card { 
@@ -66,7 +61,6 @@
 .card-actions { display: flex; justify-content: flex-end; gap: 20px; margin-top: 15px; }
 .card-actions a { text-decoration: none; color: #000; font-weight: bold; font-size: 0.95rem; }
 
-/* Footer */
 footer {
     display: flex;
     justify-content: space-between;

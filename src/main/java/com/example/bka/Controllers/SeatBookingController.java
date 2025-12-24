@@ -109,7 +109,7 @@ public class SeatBookingController {
         try {
 
             User user = (User) session.getAttribute("userLogin");
-            Booking booking = bookingService.getBookingByUser(user);
+            List<Booking> booking = bookingService.getBookingByUser(user);
             model.addAttribute("tickets", seatBookingService.getByBooking(booking));
             return "ticket";
         } catch (IllegalArgumentException e) {

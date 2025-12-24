@@ -27,6 +27,9 @@
 <main class="main-container">
     <h1 class="page-title">SCHEDULE</h1>
     <hr class="header-line">
+       <div class="error-container" th:if="${error}">
+            <p class="error-text" th:text="${error}"></p>
+    </div>
 
     <div class="schedule-grid">
         <div th:each="s : ${schedules}" class="schedule-card">

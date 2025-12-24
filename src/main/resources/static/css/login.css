@@ -1,4 +1,3 @@
-/* Reset Dasar */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +9,6 @@ body {
     background-color: #ffffff;
 }
 
-/* Header */
 .site-header {
     background-color: #0b132b;
     padding: 15px 50px;
@@ -31,14 +29,12 @@ body {
     height: 40px;
 }
 
-/* Garis Pembatas (HR) */
 hr {
     border: 0;
-    border-top: 2px solid #0b132b; /* Garis biru gelap yang tebal */
+    border-top: 2px solid #0b132b; 
     margin: 0;
 }
 
-/* Main Wrapper (Kontainer Tengah) */
 .main-wrapper {
     display: flex;
     align-items: center;
@@ -47,9 +43,8 @@ hr {
     min-height: 70vh;
 }
 
-/* Kotak Login Biru Gelap */
 .login-card {
-    background-color: #0b132b; /* Warna latar belakang gelap sesuai gambar */
+    background-color: #0b132b; 
     padding: 40px;
     border-radius: 12px;
     width: 400px;
@@ -59,14 +54,13 @@ hr {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Group Input (Email & Password) */
 .input-group {
     width: 100%;
     margin-bottom: 25px;
 }
 
 .input-group label {
-    display: none; /* Label disembunyikan jika ingin mirip kotak putih polos di gambar */
+    display: none; 
 }
 
 .input-group input {
@@ -78,7 +72,6 @@ hr {
     background-color: #ffffff;
 }
 
-/* Tombol Login */
 .btn-login {
     background-color: transparent;
     color: white;
@@ -102,7 +95,6 @@ hr {
     margin-top: 10px;
 }
 
-/* Link Registrasi */
 .register-link {
     text-align: center;
     margin-top: 20px;
@@ -116,7 +108,6 @@ hr {
     letter-spacing: 1px;
 }
 
-/* Bagian Gambar */
 .image-card {
     flex: 1;
     display: flex;
@@ -130,7 +121,6 @@ hr {
     object-fit: cover;
 }
 
-/* Footer */
 footer {
     display: flex;
     justify-content: space-between;
@@ -152,7 +142,6 @@ footer img {
     cursor: pointer;
 }
 
-/* Error Message */
 .error-msg {
     color: #ff4d4d;
     font-size: 0.8rem;

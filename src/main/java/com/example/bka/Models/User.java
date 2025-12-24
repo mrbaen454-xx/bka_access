@@ -8,6 +8,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Entity
@@ -17,8 +20,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;    
+    @NotBlank
+    @Size(min = 3, max = 50)
+    private String name;
+    @Email    
     private String email;
+    @NotBlank
+    @Size(min = 6, max = 20)
     private String password;
     
     @Enumerated(EnumType.STRING)

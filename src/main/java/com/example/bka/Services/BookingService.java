@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.bka.Constans.Role;
 import com.example.bka.Models.Booking;
+import com.example.bka.Models.Schedule;
 import com.example.bka.Models.User;
 import com.example.bka.Repository.BookingRepository;
 import com.example.bka.Repository.ScheduleRepository;
@@ -23,21 +24,30 @@ public class BookingService {
     @Autowired
     private UserRepository userRepository;
 
-    public Booking saveBooking(User user, Long scheduleId, Integer ticketCount) {
+public Booking saveBooking(User user, Long scheduleId, Integer ticketCount) {
 
-        Booking booking = new Booking();
-
-        booking.setUser(user);
-        booking.setSchedule(scheduleRepository.findById(scheduleId).orElse(null));
-        booking.setTicketCount(ticketCount);
-        booking.setTotalPayment(booking.getSchedule().getRoute().getBasePrice() * ticketCount);
-
-        return bookingRepository.save(booking);
+    if (ticketCount == null || ticketCount <= 0) {
+        throw new IllegalArgumentException("Jumlah tiket harus lebih dari 0");
     }
+
+    Schedule schedule = scheduleRepository.findById(scheduleId)
+        .orElseThrow(() -> new IllegalArgumentException("Schedule tidak ditemukan"));
+
+    Booking booking = new Booking();
+    booking.setUser(user);
+    booking.setSchedule(schedule);
+    booking.setTicketCount(ticketCount);
+
+    double price = schedule.getRoute().getBasePrice();
+    booking.setTotalPayment(price * ticketCount);
+
+    return bookingRepository.save(booking);
+}
+
     public Booking getBooking(Long id) {
         return bookingRepository.findById(id).orElse(null);
     }
-    public Booking getBookingByUser(User user) {
+    public List<Booking> getBookingByUser(User user) {
         return bookingRepository.findByUser(user);
     }
     public void deleteBooking(Long id) {

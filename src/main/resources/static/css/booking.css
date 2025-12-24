@@ -1,7 +1,5 @@
-/* Dasar */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
 
-/* Header */
 .site-header {
     background-color: #0b132b; color: white;
     padding: 15px 50px; display: flex;
@@ -14,24 +12,20 @@
 .nav-icon-group { display: flex; align-items: center; gap: 5px; }
 .nav-icon-group img { height: 20px; }
 
-/* Main Layout */
 .main-container { padding: 20px 50px; color: #1a233a; }
 .page-title { font-size: 2.2rem; font-weight: bold; }
 .header-line { border: 0; border-top: 4px solid #0b132b; margin: 10px 0 30px 0; }
 
-/* Detail Booking */
 .booking-details { padding-left: 50px; }
 .row-display { display: flex; align-items: center; font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; }
 .connector-line { flex: 0 0 60px; height: 4px; background-color: #1a233a; margin: 0 15px; }
 .train-info { font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; }
 .time-row { margin-bottom: 25px; }
 
-/* Form & Info Line */
 .info-line { display: flex; align-items: center; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; }
 .info-line label { width: 180px; }
 .info-line .colon { width: 30px; }
 
-/* Input field lonjong */
 input[type="number"] {
     border: 2px solid #000;
     border-radius: 15px;
@@ -39,9 +33,8 @@ input[type="number"] {
     width: 250px;
     outline: none;
 }
-/* Error Message Style */
 .error-container {
-    margin-left: 50px; /* Sejajar dengan kotak input */
+    margin-left: 50px; 
     margin-bottom: 5px;
     margin-top: 10px;
 }
@@ -56,7 +49,6 @@ input[type="number"] {
     border-left: 4px solid #d90429;
 }
 
-/* Tombol Pill Abu-abu */
 .btn-container { display: flex; justify-content: center; margin-top: 20px; }
 .btn-pill {
     background-color: #c4c4c4;
@@ -71,11 +63,9 @@ input[type="number"] {
 }
 .btn-pill:hover { background-color: #a8a8a8; }
 
-/* Section Total */
 .total-section { padding-left: 50px; margin-top: 20px; }
 .total-value { font-size: 1.2rem; }
 
-/* Footer */
 footer {
     display: flex;
     justify-content: space-between;

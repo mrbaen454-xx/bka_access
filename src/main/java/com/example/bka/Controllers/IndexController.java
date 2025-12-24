@@ -31,7 +31,7 @@ public class IndexController {
     }
 
     @PostMapping("/login")
-    public String loginUser(@ModelAttribute("user") User user,Model model,HttpSession session) {
+    public String loginUser( @ModelAttribute("user") User user,Model model,HttpSession session) {
         try {
             User userLogin = userService.loginUser(user.getEmail(), user.getPassword());
             session.setAttribute("userLogin", userLogin);
@@ -53,7 +53,7 @@ public class IndexController {
     }
 
     @PostMapping("/registrasi")
-    public String registasiUser(@ModelAttribute("user") User user, Model model) {
+    public String registasiUser(@ModelAttribute("user") User user,Model model) {
         try {
             userService.userRegistasi(user);
             return "redirect:/login";

@@ -5,7 +5,6 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Header (Gunakan kembali gaya Admin) */
 .site-header {
     background-color: #0b132b;
     color: white;
@@ -22,7 +21,6 @@
 .nav-icon-group { display: flex; align-items: center; gap: 5px; }
 .nav-icon-group img { height: 18px; }
 
-/* Main Container */
 .station-container {
     padding: 20px 50px;
 }
@@ -39,7 +37,6 @@
     margin-bottom: 30px;
 }
 
-/* Form Styles */
 .form-wrapper {
     max-width: 800px;
     margin-bottom: 50px;
@@ -67,7 +64,7 @@
 }
 
 .form-group .small-input {
-    flex: 0 0 100px; /* Ukuran kotak Active lebih kecil sesuai gambar */
+    flex: 0 0 100px; 
 }
 
 .form-action {
@@ -77,17 +74,16 @@
 }
 
 .btn-save {
-    background-color: #c4c4c4; /* Abu-abu seperti di gambar */
+    background-color: #c4c4c4; 
     border: 2px solid #000;
     padding: 10px 40px;
     border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
 }
-/* Gaya untuk Pesan Error */
 .error-message {
-    background-color: rgba(255, 77, 77, 0.1); /* Merah sangat muda transparan */
-    color: #d90429; /* Merah tegas */
+    background-color: rgba(255, 77, 77, 0.1); 
+    color: #d90429; 
     padding: 10px 15px;
     border-radius: 10px;
     border-left: 5px solid #d90429;
@@ -98,14 +94,12 @@
     width: 100%;
 }
 
-/* Penyesuaian agar pesan error sejajar dengan input form */
 .form-error-wrapper {
     display: flex;
-    justify-content: flex-end; /* Mendorong teks ke sisi kanan sejajar dengan kotak input */
+    justify-content: flex-end; 
     margin-bottom: 20px;
 }
 
-/* City List Styles */
 .city-title {
     font-size: 2rem;
     color: #1a233a;
@@ -145,7 +139,6 @@
     font-size: 0.9rem;
 }
 
-/* Footer */
 footer {
     display: flex;
     justify-content: space-between;

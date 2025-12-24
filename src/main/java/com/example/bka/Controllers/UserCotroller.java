@@ -40,9 +40,15 @@ public class UserCotroller {
     @GetMapping("/serchSchedule")
     public String serchSchedule(@RequestParam("departureStation") String departureStation,
             @RequestParam("arrivalStation") String arrivalStation, Model model) {
-        model.addAttribute("schedules", scheduleService.serch(departureStation, arrivalStation));
-
-        return "serchSchedule";
+                try {
+                    
+                    model.addAttribute("schedules", scheduleService.serch(departureStation, arrivalStation));
+            
+                    return "serchSchedule";
+                } catch (IllegalArgumentException e) {
+                   model.addAttribute("error", e.getMessage());
+                   return "serchSchedule";
+                }
     }
 
     @GetMapping("/profile")
@@ -65,7 +71,6 @@ public class UserCotroller {
     
     @PostMapping("/profile/update")
     public String updateProfile(User user, HttpSession session) {
-
         User updatedUser = userService.updateUser(user);
 
         session.setAttribute("userLogin", updatedUser);

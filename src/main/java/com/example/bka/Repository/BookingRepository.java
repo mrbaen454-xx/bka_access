@@ -11,5 +11,5 @@ import com.example.bka.Models.User;
 public interface BookingRepository extends JpaRepository<Booking, Long> {
     List<Booking> findBySchedule(Schedule schedule);
     void deleteBySchedule(Schedule schedule);
-    Booking findByUser(User user);
+   List<Booking> findByUser(User user);
 }
